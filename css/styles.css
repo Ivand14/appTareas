@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.863);
+  overflow: hidden;
+}
+
+.contenedor-tareas {
+  background: linear-gradient(to bottom, #90e0ef, #0077b6, #03045e);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: flex-start;
+  gap: 3rem;
+}
+
+.texto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}
+.texto h1 {
+  margin-right: 7rem;
+  letter-spacing: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: antiquewhite;
+}
+.texto img {
+  transition: ease-out 0.4s;
+}
+
+.texto img:hover {
+  transform: scale(1.2) rotate(180deg);
+  cursor: pointer;
+}
+
+.texto2 {
+  display: flex;
+  justify-content: center;
+}
+.texto2 h2 {
+  color: antiquewhite;
+  font-size: 2rem;
+}
+
+.agregar-tarea {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.agregar-tarea img {
+  height: 3rem;
+  transition: ease-in-out 0.3s;
+}
+
+.agregar-tarea img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.input {
+  width: 35rem;
+  height: 4rem;
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.tareas-pendientes ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 34rem;
+  height: 4rem;
+  background: #1976d2;
+  border: rgba(0, 0, 0, 0.815) solid 0.1rem;
+  border-radius: 4rem;
+  box-shadow: 0.3 0.3 rgba(0, 0, 0, 0.863);
+  margin-left: -5rem;
+  margin-bottom: 2rem;
+}
+.tareas-pendientes ul li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+.tareas-pendientes ul p {
+  font-size: 1.5rem;
+  list-style-type: none;
+  color: antiquewhite;
+}
+.tareas-pendientes ul img {
+  height: 2.3rem;
+  transition: ease 0.4s;
+}
+
+.tareas-pendientes h2 {
+  color: antiquewhite;
+  margin-bottom: 2rem;
+}
+.tareas-pendientes img:hover {
+  transform: scale(1.123);
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=styles.css.map */
