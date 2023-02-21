@@ -1,70 +1,78 @@
-function nombreValido() {
-  let ingresarNombre = prompt("Bienvenido a todo list app. Cual es tu nombre?");
 
-  while (ingresarNombre != "") {
-    alert(`${ingresarNombre} Bienvenido a todo list app`);
+const contendorTareas=document.querySelector('.contenedorParaTareas')
+const botonAgregar=document.querySelector('#boton-agregar')
+const tarea=document.querySelector('#tarea')
 
-    break;
-  }
-  while (ingresarNombre == "") {
-    alert("Ingresa un nombre correcto");
-    ingresarNombre = prompt("vuelve a ingresar tu nombre");
-  }
+
+
+
+
+botonAgregar.addEventListener('click',agregarTarea)
+
+
+function agregarTarea(event){
+    event.preventDefault();
+
+    const texto=tarea.value;
+
+    if(tarea.value !='' ){
+
+        contendorTareas.classList.remove('disabled')
+
+        const li=document.createElement('li');
+        li.className='tareasPendientes';
+        li.innerHTML=`
+        <ul class="tareasRealizar" id="tareaLista"><i class="bi bi-caret-right"></i><p class="tareaAgregada" id="tareaLista">${texto}</p><i class="bi bi-trash3 icon" id='borrar'></i></ul>
+        `
+        
+        contendorTareas.append(li)
+        contendorTareas.classList.remove('disabled');
+        tarea.value='';
+    }
 }
 
-function fechas(cumple) {
-  console.log(`se agendo la fecha de su cumpleaños ${cumple}`);
+function tareaLista(element){
+    element.classList.toggle('tareaTachada');
 }
 
-function datos() {
-  let mail = prompt("Ingrese su correo electronico");
-  while (mail == "") {
-    mail = prompt("Vuelva a ingresar su correo electronico");
-  }
-  let contraseña = prompt("Ingrese su contraseña");
 
-  for (let i = 0; i < 1; i++) {
-    contraseña = prompt("Confirme su contraseña");
-  }
+
+function tareaEliminada(element){
+    element.parentNode.parentNode.remove(element.parentNode);
 }
 
-function recordatorio() {
-  let recordar = prompt("¿Desea programar una alarma? Si/No");
 
-  switch (recordar) {
-    case "Si":
-      recordar = prompt("¿A que hora desea su alarma?");
-      alert(`su alarma fue programada a las ${recordar}`);
-      break;
-    case "No":
-      alert("No se programará ninguna a alarma");
-      break;
-    default:
-      recordatorio();
-  }
-}
 
-function notificacion() {
-  let notificaciones = prompt("¿Desea recibir notificaciones? Si/No");
+contendorTareas.addEventListener('click',function(event){
+    const element=event.target;
 
-  switch (notificaciones) {
-    case "Si":
-      alert(`Usted recibira notificaciones`);
-      break;
-    case "No":
-      alert("No recibira notificaciones");
-      break;
-    default:
-      notificacion();
-  }
-}
+    const elementData=element.attributes.id.value;
 
-function fechas(cumple) {
-  console.log(`se agendo la fecha de su cumpleaños ${cumple}`);
-}
+    if(elementData=='tareaLista'){
 
-nombreValido();
-let fecha = fechas("04/11/1999");
-datos();
-recordatorio();
-notificacion();
+        tareaLista(element);
+
+    }
+
+    if(elementData=='borrar'){
+        tareaEliminada(element);
+    }
+
+})
+
+document.addEventListener('keyup',function(event){
+
+    if(event.key=='Enter'){
+        agregarTarea(event)
+    }
+})
+
+const modoOscuro=document.querySelector('#icon')
+const contenedorMdOscuro=document.querySelector('.container')
+
+modoOscuro.addEventListener('click',()=>{
+    contenedorMdOscuro.classList.toggle('claseOscuro')
+})
+
+
+
