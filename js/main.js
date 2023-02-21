@@ -7,13 +7,17 @@ const tarea=document.querySelector('#tarea')
 
 
 
+
+
 botonAgregar.addEventListener('click',agregarTarea)
 
 
 function agregarTarea(event){
+
     event.preventDefault();
 
-    const texto=tarea.value;
+    let texto=tarea.value;
+
 
     if(tarea.value !='' ){
 
@@ -22,14 +26,19 @@ function agregarTarea(event){
         const li=document.createElement('li');
         li.className='tareasPendientes';
         li.innerHTML=`
-        <ul class="tareasRealizar" id="tareaLista"><i class="bi bi-caret-right"></i><p class="tareaAgregada" id="tareaLista">${texto}</p><i class="bi bi-trash3 icon" id='borrar'></i></ul>
+        <ul class="tareasRealizar" id="tareaLista"><i class="bi bi-caret-right"></i><p class="tareaAgregada">${texto}</p><i class="bi bi-trash3 icon" id='borrar'></i></ul>
         `
-        
         contendorTareas.append(li)
         contendorTareas.classList.remove('disabled');
         tarea.value='';
+        
     }
+
 }
+
+
+
+
 
 function tareaLista(element){
     element.classList.toggle('tareaTachada');
